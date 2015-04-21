@@ -8,4 +8,5 @@
     <string name="title_activity_list">ListActivity</string>
     <string name="title">Default Title</string>
     <string name="description">Dummy Description</string>
+    <string name="title_activity_view_post">ViewPostActivity</string>
 </resources>

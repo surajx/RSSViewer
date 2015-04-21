@@ -2,6 +2,7 @@ package in.surajx.rssviewer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,11 @@ public class ListActivity extends Activity {
             @Override
             public void onItemClick(AdapterView arg0, View arg1, int arg2,
                                     long arg3) {
-                //Open link in webview
+                Bundle postInfo = new Bundle();
+                postInfo.putString("link", feed.getFeedList().get(arg2).getItemLink());
+                Intent postviewIntent = new Intent(ListActivity.this, ViewPostActivity.class);
+                postviewIntent.putExtras(postInfo);
+                startActivity(postviewIntent);
             }
         });
 

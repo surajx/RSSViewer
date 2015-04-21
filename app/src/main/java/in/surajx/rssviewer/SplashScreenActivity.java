@@ -1,5 +1,6 @@
 package in.surajx.rssviewer;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,7 +8,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -20,7 +20,7 @@ import in.surajx.rssviewer.xml.RSSFeed;
 import in.surajx.rssviewer.xml.RSSFeedXMLParser;
 
 
-public class SplashScreenActivity extends ActionBarActivity {
+public class SplashScreenActivity extends Activity {
 
     private final String RSS_FEED_URL = "http://indianote.asia/feed";
 
