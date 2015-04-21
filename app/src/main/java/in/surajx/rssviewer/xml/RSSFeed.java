@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/** A collection of FeedItems make the entire RSSFeed
+/**
+ * A collection of FeedItems make the entire RSSFeed
  * Created by surajx on 21/4/15.
  */
 public class RSSFeed implements Serializable {
@@ -19,15 +20,14 @@ public class RSSFeed implements Serializable {
         feedItem.add(item);
     }
 
-    public List<FeedItem> getFeedList(){
+    public List<FeedItem> getFeedList() {
         return feedItem;
     }
 
-    public int getItemCount(){
-        if(feedItem!=null){
+    public int getItemCount() {
+        if (feedItem != null) {
             return feedItem.size();
         }
-        System.out.println("feedItemNull");
         return 0;
     }
 }

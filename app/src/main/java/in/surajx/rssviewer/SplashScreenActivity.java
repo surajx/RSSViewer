@@ -6,8 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -55,7 +55,7 @@ public class SplashScreenActivity extends ActionBarActivity {
         }
     }
 
-    private class XMLFeedLoadingTask extends AsyncTask<Void,Void, RSSFeed> {
+    private class XMLFeedLoadingTask extends AsyncTask<Void, Void, RSSFeed> {
 
         @Override
         protected RSSFeed doInBackground(Void... params) {

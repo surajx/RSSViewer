@@ -1,6 +1,7 @@
 package in.surajx.rssviewer.xml;
 
-/** XML tag names
+/**
+ * XML tag names
  * Created by surajx on 21/4/15.
  */
 public class XMLTagNames {

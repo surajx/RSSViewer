@@ -9,10 +9,9 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
-/** Parser for http://www.indianote.asia RSS Feed
+/**
+ * Parser for http://www.indianote.asia RSS Feed
  * Created by surajx on 21/4/15.
  */
 public class RSSFeedXMLParser {
@@ -20,7 +19,7 @@ public class RSSFeedXMLParser {
     private static final String ns = null;
 
     public RSSFeed parse(InputStream in) throws XmlPullParserException, IOException {
-        try{
+        try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
@@ -93,12 +92,12 @@ public class RSSFeedXMLParser {
                     Document doc = Jsoup.parse(descriptionHTML);
                     feedItem.setItemDescription(doc.text());
                     String imageSrc = null;
-                    try{
+                    try {
                         imageSrc = doc.getElementsByTag(XMLTagNames.IMAGE_TAG).first().attr(XMLTagNames.IMAGE_TAG_SRC_ATTRIBUTE);
-                    } catch (NullPointerException ignored){
+                    } catch (NullPointerException ignored) {
                         System.out.println("No Image available");
                     }
-                    if(null!=imageSrc && !imageSrc.isEmpty())
+                    if (null != imageSrc && !imageSrc.isEmpty())
                         feedItem.setItemImage(imageSrc);
                     break;
                 case XMLTagNames.LINK_TAG:
