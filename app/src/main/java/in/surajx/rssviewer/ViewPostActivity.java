@@ -34,6 +34,7 @@ public class ViewPostActivity extends Activity {
                 view.loadUrl(url);
                 return false;
             }
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 progress.setVisibility(View.GONE);
