@@ -107,7 +107,7 @@ public class ListActivity extends Activity {
 
             // Set the views in the layout
             imageLoader.DisplayImage(feed.getFeedList().get(pos).getItemImage(), iv);
-            tvTitle.setText(feed.getFeedList().get(pos).getItemTitle());
+            tvTitle.setText("[" + feed.getFeedList().get(pos).getItemCategory() + "] " + feed.getFeedList().get(pos).getItemTitle());
             tvDesc.setText(feed.getFeedList().get(pos).getItemDescription());
 
             return listItem;

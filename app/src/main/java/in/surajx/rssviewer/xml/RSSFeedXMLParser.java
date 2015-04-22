@@ -73,10 +73,10 @@ public class RSSFeedXMLParser {
     private FeedItem readItem(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, XMLTagNames.ITEM_TAG);
         String title;
-        String description;
         String link;
-        String image;
+        String category;
         FeedItem feedItem = new FeedItem();
+        boolean isCategoryFound = false;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -104,12 +104,29 @@ public class RSSFeedXMLParser {
                     link = readLink(parser);
                     feedItem.setItemLink(link);
                     break;
+                case XMLTagNames.CATEGORY:
+                    if (!isCategoryFound) {
+                        String categoryHTML = readCategory(parser);
+                        doc = Jsoup.parse(categoryHTML);
+                        feedItem.setItemCategory(doc.text());
+                        isCategoryFound = true;
+                    } else {
+                        skip(parser);
+                    }
+                    break;
                 default:
                     skip(parser);
                     break;
             }
         }
         return feedItem;
+    }
+
+    private String readCategory(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, XMLTagNames.CATEGORY);
+        String categoryHTML = parser.nextText();
+        parser.require(XmlPullParser.END_TAG, ns, XMLTagNames.CATEGORY);
+        return categoryHTML;
     }
 
     private String readDescriptionHTML(XmlPullParser parser) throws IOException, XmlPullParserException {

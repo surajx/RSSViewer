@@ -18,4 +18,5 @@ public class XMLTagNames {
     public static final String IMAGE_TAG_SRC_ATTRIBUTE = "src";
 
     public static final String CHANNEL = "channel";
+    public static final String CATEGORY = "category";
 }
