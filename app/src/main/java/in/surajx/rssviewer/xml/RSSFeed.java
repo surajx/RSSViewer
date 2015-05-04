@@ -30,4 +30,13 @@ public class RSSFeed implements Serializable {
         }
         return 0;
     }
+
+    public RSSFeed feedFilter(String itemCategory) {
+        RSSFeed filteredFeed = new RSSFeed();
+        for (FeedItem item : feedItem) {
+            if (item.getItemCategory().equals(itemCategory))
+                filteredFeed.addItem(item);
+        }
+        return filteredFeed;
+    }
 }
